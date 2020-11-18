@@ -22,8 +22,6 @@
 | Практическая 14 - [[C++]](./Practice/14/C++/Project14/) [[Python]](./Practice/14/Python/) | 
 | Практическая 15 - [[C++]](./Practice/15/C++/Project15/) [[Python]](./Practice/15/Python/) | 
 | Практическая 16 - [[C++]](./Practice/16/C++/Project16/) [[Python]](./Practice/16/Python/) | 
-| Практическая 17 - [[C++]](./Practice/17/C++/Project17/) [[Python]](./Practice/17/Python/) | 
-| Практическая 18 - [[C++]](./Practice/18/C++/Project18/) [[Python]](./Practice/18/Python/) | 
-| Практическая 19 - [[C++]](./Practice/19/C++/Project19/) [[Python]](./Practice/19/Python/) | 
-| Практическая 20 - [[C++]](./Practice/20/C++/Project20/) [[Python]](./Practice/20/Python/) | 
 | Практическая 21 - [[C++Почему-то не переходит на файл]](./Practice/21/C++/Project21/) [[Python]](./Practice/21/Python/) | 
+| Практическая 23 - [[C++]](./Practice/23/C++/Project23/) | 
+| Практическая 24 - [[C++]](./Practice/24/C++/Project24/) [[Python]](./Practice/24/Python/) | 
