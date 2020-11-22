@@ -72,4 +72,4 @@ http://worldtimeapi.org/api/timezone/Europe/Simferopol
 
 <center> <i> Рисунок 1.2. Результат с сайта. </center>
   
-  ### Задание 2
+  ### Задание 2 
