@@ -68,7 +68,7 @@ http://api.openweathermap.org/data/2.5/onecall?lat=44.9698623&lon=34.1329217&exc
 Далее перехожу на сайт: http://http://worldtimeapi.org/ . Затем необходимо получить текущее время в Симферополе в виде JSON кода. Ввожу следуйщий запрос:
 http://worldtimeapi.org/api/timezone/Europe/Simferopol
 
-![Рис.1.2](./01/Pictures/z2.png)
+![Рис.1.2](./Lab/01/Pictures/z2.png)
 
 <center> <i> Рисунок 1.2. Результат с сайта. </center>
   
