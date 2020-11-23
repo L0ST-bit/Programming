@@ -74,10 +74,10 @@ http://worldtimeapi.org/api/timezone/Europe/Simferopol
   
   ### Задание 2 
   
-  ```c++
-  ### Полный исходный код сервера
+  ### Полный исходный код сервера:
   
-  #include <iostream>
+  ```c++
+#include <iostream>
 #include <iomanip>
 #include <fstream>
 #include <cpp_httplib/httplib.h>
@@ -88,7 +88,8 @@ using namespace httplib;
 
 
 
-json GWeather(){
+json GWeather()
+{
     string REQ, Adress, API, Data;
     Adress = "/data/2.5/onecall?id=524901&";
     Data = "lat=44.95719&lon=34.11079&exclude=current,minutely,daily,alerts&units=metric&lang=ru&";
@@ -98,15 +99,18 @@ json GWeather(){
     Client Weather("http://api.openweathermap.org");
     auto res = Weather.Get(REQ.c_str());
     if (res) {
-        if (res->status == 200){
+        if (res->status == 200)
+        {
             json result = res->body;
             return result;
         }
-        else{
+        else
+        {
             cout << "Status code: " << res->status << endl;
         }
     }
-    else{
+    else
+    {
         auto err = res.error();
         cout << "Error code: " << err << endl;
     }
@@ -116,21 +120,25 @@ string GTime() {
     Client Time("http://worldtimeapi.org");
     auto res = Time.Get("/api/timezone/Europe/Simferopol");
     if (res) {
-        if (res->status == 200){
+        if (res->status == 200)
+        {
             string result = res->body;
             return result;
         }
-        else{
+        else
+        {
             cout << "Status code: " << res->status << endl;
         }
     }
-    else{
+    else
+    {
         auto err = res.error();
         cout << "Error code: " << err << endl;
     }
 }
 
-json CacheGenerator(ifstream& ReadCache){
+json CacheGenerator(ifstream& ReadCache)
+{
     json RawCache;
     RawCache = GWeather();
     ofstream wc("cache.json");
@@ -139,9 +147,11 @@ json CacheGenerator(ifstream& ReadCache){
     return RawCache;
 }
 
-json CacheReader(ifstream& rc){
+json CacheReader(ifstream& rc)
+{
     json RawCache;
     rc >> RawCache;
+    cout << "Cache succesfully read" << endl;
     return RawCache;
 }
 
@@ -225,14 +235,14 @@ void gen_response_raw(const Request& req, Response& res)
         cache = json::parse(temp);
     }
 
-    json WeatherData;
+    json WData;
     double tempd = cache["hourly"][curr_hour]["temp"];
     int tempi = round(tempd);
     string desk = cache["hourly"][curr_hour]["weather"][0]["description"];
 
-    WeatherData["temperature"] = tempi;
-    WeatherData["description"] = desk;
-    res.set_content(WeatherData.dump(), "text/json");
+    WData["temperature"] = tempi;
+    WData["description"] = desk;
+    res.set_content(WData.dump(), "text/json");
 }
 
 int main() {
@@ -242,12 +252,11 @@ int main() {
     cout << "Start server... OK\n";
     Strizh.listen("localhost", 3000);
 }
-```
+  ```
 
-###Полный исходный код клиента
-
-```Python
-from tkinter import *
+### Полный исходный код клиента:
+ ```c++
+ from tkinter import *
 import json
 import requests
 
@@ -284,24 +293,22 @@ temp.pack(expand=True)
 WeatherReload()
 root.mainloop()
 
-```
-Скриншот графического интерфейса:
-
-![Рис. 2.1](./01/Pictures/tkinter.png)
-
-<center> <i> Рисунок 2.1. Графический интерфейс. </center>
-
-  Скриншон браузера с загруженным виджетом:
-
-![Рис. 2.2](./01/Pictures/vid.png)
-
-<center> <i> Рисунок 2.2. Браузер с виджетом. </center>
-
-## Вывод по работе. 
-
-Цель работы была достигнута, а также закреплены навыки разработки многофайловыx приложений и получено базовое представление о сетевом взаимодействии приложений. Было выполнено:
-
-- Создание сервера на языке С++, обращающегося к openweathermap.com и возвращающий виджет или описание и температуру в формате json
-- Приложение с графическим интерфейсом, написанное на языке Python с использованием библиотеки Tkinter
-
+  ```
+  Скриншот графического интерфейса:
   
+  ![Рис.2.1](./01/Pictures/tkinter.png)
+  
+  <center> <i> Рисунок 2.1. Графический интерфейс. </center>
+	
+  Скриншот браузера с виджетом.
+ 
+ ![Рис. 2.2](./01/Pictures/vid.png)
+
+<center> <i> Рисунок 1.3. Браузер с виджетом. </center>
+  
+  ## Вывод по работе. 
+
+Цель работы достигнута. А также были закреплены навыки разработки многофайловых приложений, получены базовые представление о сетевом взаимодействии приложений.
+Было выполнено:
+- Создание сервера на языке С++ обращающегося к openweathermap.com и возвращающий виджет или описание и температуру в формате json
+- Приложение с графическим интерфейсом, написанное на языке Python с использованием библиотеки Tkinter
