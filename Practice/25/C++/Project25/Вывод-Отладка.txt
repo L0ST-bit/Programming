@@ -1,0 +1,14 @@
+﻿"Project25.exe" (Win32). Загружено "C:\Users\User\source\repos\Project25\Debug\Project25.exe". Символы загружены.
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\ntdll.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\kernel32.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\KernelBase.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\msvcp140d.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\vcruntime140d.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\ucrtbased.dll". 
+Поток 0x5f40 завершился с кодом 0 (0x0).
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\kernel.appcore.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\msvcrt.dll". 
+"Project25.exe" (Win32). Загружено "C:\Windows\SysWOW64\rpcrt4.dll". 
+Поток 0x65f4 завершился с кодом 0 (0x0).
+Поток 0x44f4 завершился с кодом 0 (0x0).
+Программа "[14964] Project25.exe" завершилась с кодом 0 (0x0).
