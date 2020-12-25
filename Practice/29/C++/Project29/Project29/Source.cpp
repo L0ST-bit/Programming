@@ -15,6 +15,36 @@ struct Studennt {
         sName = Name;
         sgroup = group;
 };
+    ostream& operator << (ostream& out, const :vector<Student>& student_vec)
+    {
+        auto name_len = student_vec.at(0).data_name.length();
+        for (auto itr = student_vec.begin() + 1; itr != student_vec.end(); ++itr)
+        {
+            if (itr->data_name.length() > name_len)
+            {
+                name_len = itr->data_name.length();
+            }
+        }
+        auto name_delim = string(name_len, '-');
+        out << "+-" << name_delim << "-+-------+------+------+------+------+\n"
+            << "| Name " << string(name_len - 4, ' ')
+            << "| Group | Math | Phys | Hist | Prog |\n"
+            << "+-" << name_delim << "-+-------+------+------+------+------+\n";
+
+        for (auto& student : student_vec)
+        {
+            out << "| " << student.data_name
+                << string(name_len - student.data_name.length(), ' ')
+                << " | " << student.data_group
+                << "     | " << student.data_exams.at("math")
+                << "    | " << student.data_exams.at("phys")
+                << "    | " << student.data_exams.at("hist")
+                << "    | " << student.data_exams.at("prog")
+                << "    |\n"
+                << "+-" << name_delim << "-+-------+------+------+------+------+\n";
+        }
+        return out;
+    };
 
 
     int main() {
