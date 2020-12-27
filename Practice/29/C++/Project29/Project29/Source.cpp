@@ -1,62 +1,122 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <map>
-#include <time.h>
-#include "Header.h"
+#include <ctime>
+#include <iomanip>
+
 
 using namespace std;
 
-struct Studennt {
-    map<string, int> exams;
-    string sName;
-    int sgroup;
-    Student(string Name, int group, int math, int phys, int hist, int prog) {
-        exams = { {"math", math},{"phys", phys},{"hist", hist},{"prog", prog} };
-        sName = Name;
-        sgroup = group;
+struct Student{
+    string StNames;
+    int group;
+    map<string, int> marks;
 };
-    ostream& operator << (ostream& out, const :vector<Student>& student_vec)
-    {
-        auto name_len = student_vec.at(0).data_name.length();
-        for (auto itr = student_vec.begin() + 1; itr != student_vec.end(); ++itr)
-        {
-            if (itr->data_name.length() > name_len)
-            {
-                name_len = itr->data_name.length();
+
+bool operator > (Student first, Student second){
+    return first.StNames > second.StNames;
+}
+
+ostream& operator<<(ostream& print, vector<Student> dwoech_list){
+    print << "+-------------+-------+------+------+------+------+" << endl
+          << "| Name        | Group | Math | Phys | Hist | Prog |" << endl
+          << "+-------------+-------+------+------+------+------+" << endl;
+    for (auto student : dwoech_list){
+    print << "|" << student.StNames << setw(14 - student.StNames.length())
+          << "|" << student.group << setw(7)
+          << "|" << student.marks["math"] << setw(6)
+          << "|" << student.marks["phys"] << setw(6)
+          << "|" << student.marks["hist"] << setw(6)
+          << "|" << student.marks["prog"] << setw(6)       << "|" << endl
+          << "+-------------+-------+------+------+------+------+" << endl;
+    }
+
+    return print;
+}
+
+ostream& operator<<(ostream& print, Student dwoech_list){
+    print << "+-------------+-------+------+------+------+------+" << endl
+          << "| Name        | Group | Math | Phys | Hist | Prog |" << endl
+          << "+-------------+-------+------+------+------+------+" << endl
+          << "|" << dwoech_list.StNames << setw(14 - dwoech_list.StNames.length())
+          << "|" << dwoech_list.group << setw(7)
+          << "|" << dwoech_list.marks["math"] << setw(6)
+          << "|" << dwoech_list.marks["phys"] << setw(6)
+          << "|" << dwoech_list.marks["hist"] << setw(6)
+          << "|" << dwoech_list.marks["prog"] << setw(6)   << "|" << endl
+          << "+-------------+-------+------+------+------+------+" << endl;
+
+    return print;
+}
+
+
+
+template <class T>
+vector<T> BozoSort(vector <T> type1, bool check = true) {
+    int a = 0, random1, random2;
+    int n = type1.size();
+    if (check) {
+        while (!check) {
+            for (int i = 0; i < n; i++) {
+                random1 = rand() % n;
+                random2 = rand() % n;
+                T a = type1[random1];
+                type1[random1] = type1[random2];
+                type1[random2] = a;
+
+                check = true;
+
+                for (int i = 1; i < n; i++)
+                {
+                    if (type1[i - 1] > type1[i])
+                    {
+                        check = false;
+                        break;
+                    }
+                }
             }
+            
         }
-        auto name_delim = string(name_len, '-');
-        out << "+-" << name_delim << "-+-------+------+------+------+------+\n"
-            << "| Name " << string(name_len - 4, ' ')
-            << "| Group | Math | Phys | Hist | Prog |\n"
-            << "+-" << name_delim << "-+-------+------+------+------+------+\n";
-
-        for (auto& student : student_vec)
-        {
-            out << "| " << student.data_name
-                << string(name_len - student.data_name.length(), ' ')
-                << " | " << student.data_group
-                << "     | " << student.data_exams.at("math")
-                << "    | " << student.data_exams.at("phys")
-                << "    | " << student.data_exams.at("hist")
-                << "    | " << student.data_exams.at("prog")
-                << "    |\n"
-                << "+-" << name_delim << "-+-------+------+------+------+------+\n";
-        }
-        return out;
-    };
-
+        return type1;
+    }
+}
 
     int main() {
-        srand(time(0));
-        vector<Student> students = {
-                                        Student("Molecula C",      2, 4, 2, 4, 1),
-                                        Student("Art K",           3, 2, 5, 5, 4),
-                                        Student("Araragi K",       4, 5, 2, 5, 5),
-                                        Student("Mishima N",       5, 2, 3, 3, 4),
-                                        Student("Hoin K",          8, 4, 4, 5, 5),
-                                        Student("Kequing S",       7, 4, 5, 4, 3),
-                                        Student("Cyber P",         6, 4, 4, 3, 5),
-                                        Student("SonJinVU",        1, 1, 1, 3, 4),
-                                        Student("LiMInSon",        9, 5, 1, 3, 3),
-                                        Student("ChhaHeIn",        0, 3, 1, 4, 2) };
+        srand(time(NULL));
+        vector<Student> students, dwoech_list;
+        students = {
+            {"Molecula C",      2,   {{"math",4}, {"phys",2}, {"hist",4}, {"prog",1}} },
+            {"Art K",           3,   {{"math",2}, {"phys",5}, {"hist",5}, {"prog",4}} },
+            {"Parovozov A",     4,   {{"math",5}, {"phys",2}, {"hist",5}, {"prog",5}} },
+            {"Petrov K",        5,   {{"math",2}, {"phys",3}, {"hist",3}, {"prog",4}} },
+            {"Chebel A",        8,   {{"math",4}, {"phys",4}, {"hist",5}, {"prog",5}} },
+            {"Kequing S",       7,   {{"math",4}, {"phys",5}, {"hist",4}, {"prog",3}} },
+            {"Cyber P",         6,   {{"math",4}, {"phys",4}, {"hist",3}, {"prog",5}} },
+            {"Strizh D",        1,   {{"math",1}, {"phys",1}, {"hist",3}, {"prog",4}} },
+            {"Smirnov I",       9,   {{"math",5}, {"phys",1}, {"hist",3}, {"prog",3}} },
+            {"Antonov M",       0,   {{"math",3}, {"phys",1}, {"hist",4}, {"prog",2}} } };
+
+        int count = 0;
+
+        for (auto dwoech : students)
+        {
+            for (auto mark : dwoech.marks)
+            {
+                if (mark.second == 2)
+                {
+                    count++;
+                    dwoech_list.push_back(dwoech);
+                    break;
+                }
+            }
+        }
+
+        if (count){
+            cout << BozoSort(dwoech_list) << endl
+                << "Expulsion\n" << endl
+                << dwoech_list[rand() % dwoech_list.size()];
+        }
+        else 
+            cout << "Not found";
+    }
