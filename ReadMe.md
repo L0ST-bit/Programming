@@ -12,6 +12,7 @@
 | Практическая 36 - [[C++]](./Practice/36/C++/Project36/) [[Python]](./Practice/36/Python/Project36/) | 
 | Практическая 37 - [[C++]](./Practice/37/C++/Project37/) [[Python]](./Practice/37/Python/Project37/) | 
 | Практическая 38 - [[C++]](./Practice/38/C++/Project38/) [[Python]](./Practice/38/Python/Project38/) | 
+
 ​
 ### Первый семестр
 ​
