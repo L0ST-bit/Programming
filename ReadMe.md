@@ -7,7 +7,7 @@
 | Практические | Лабораторные |
 | ------------ | ------------ |
 | Практическая 33 - [[C++]](./Practice/33/C++/) [[Python]](./Practice/33/Python/) | [Лабораторная 4](./Lab/04) |
-| Практическая 34 - [[C++]](./Practice/34/C++/) [[Python]](./Practice/34/Python/) | 
+| Практическая 34 - [[C++]](./Practice/34/C++/) [[Python]](./Practice/34/Python/) | [Лабораторная 5](./Lab/05) |
 | Практическая 35 - [[C++]](./Practice/35/C++/) [[Python]](./Practice/35/Python/) | 
 | Практическая 36 - [[C++]](./Practice/36/C++/Project36/) [[Python]](./Practice/36/Python/Project36/) | 
 | Практическая 37 - [[C++]](./Practice/37/С++/Project37/) [[Python]](./Practice/37/Python/Project37/) | 
